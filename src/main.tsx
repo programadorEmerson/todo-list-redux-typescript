@@ -6,6 +6,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 import App from './pages/Home.tsx';
+
 import theme from './theme.ts';
 
 import 'dayjs/locale/pt-br';

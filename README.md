@@ -9,17 +9,21 @@ Histórico de desenvolvimento: https://github.com/programadorEmerson/todo-list-r
 
 `Observações importantes de funcionalidades`
 
+Aplicação desenvolvida em Mobile Firt
+![Mobile Firt](/src/assets/prints/5.png)
+![Mobile Firt](/src/assets/prints/6.png)
+
 Filtar colunas
 ![Filtar colunas](/src/assets/prints/1.png)
 
 Filtar valores
-![Filtar colunas](/src/assets/prints/2.png)
+![Filtar valores](/src/assets/prints/2.png)
 
 Gerar Csv ou Xls
-![Filtar colunas](/src/assets/prints/3.png)
+![Gerar Csv ou Xls](/src/assets/prints/3.png)
 
 Ordenar qualquer coluna clicando no nome dela
-![Filtar colunas](/src/assets/prints/4.png)
+![Ordenar qualquer coluna clicando no nome dela](/src/assets/prints/4.png)
 
 `ReactJs`</br>
 O ReactJS é uma biblioteca JavaScript de código aberto para criação de interfaces de usuário interativas. Com sua abordagem baseada em componentes, permite dividir a interface em partes reutilizáveis. Utilizando o Virtual DOM, atualiza apenas as partes modificadas, melhorando o desempenho. O ReactJS usa JSX para mesclar JavaScript e HTML. É amplamente usado e possui uma comunidade ativa, além de extensões como o React Native para desenvolvimento mobile. É uma ótima escolha para criar interfaces dinâmicas e eficientes na web.

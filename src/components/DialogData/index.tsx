@@ -1,4 +1,5 @@
 import React, { FC, forwardRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Save } from '@mui/icons-material';
 import { Button, Grid } from '@mui/material';
@@ -10,10 +11,14 @@ import { type TransitionProps } from '@mui/material/transitions';
 
 import Task from '../../interfaces/tasks';
 
+import { Dispatch, createNewTaskAsync, showDialog, updateTaskAsync } from '../../redux/actions/tasks.actions';
+import { AppProps } from '../../redux/reducers/tasks.reducer';
+
+import TaskStatus from '../../enum/taks';
+
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import TaskStatus from '../../enum/taks';
 import InputDate from '../Inputs/InputDate';
 import InputSelect from '../Inputs/InputSelect';
 import InputText from '../Inputs/InputText';
@@ -45,19 +50,12 @@ const validationSchema = yup.object<Task>({
   date: yup.string().required('Informe a data da tarefa'),
 });
 
-type DialogDataProps = {
-  openDialogTask: boolean
-  task: Task | null
-  fetching: boolean
-  closeDialogTask: (open: boolean) => void
-  updateTask: (task: Task) => Promise<void>
-  newTask: (task: Task) => Promise<void>
-}
+const DialogData: FC = () => {
 
-const DialogData: FC<DialogDataProps> = ({
-  task, openDialogTask, closeDialogTask, fetching,
-  updateTask, newTask
-}) => {
+  const dispatch = useDispatch() as Dispatch;
+  const {
+    selectedTask: task, open: openDialogTask, fetching
+  } = useSelector((state: AppProps) => state);
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -65,11 +63,10 @@ const DialogData: FC<DialogDataProps> = ({
     initialValues,
     onSubmit: async (values) => {
       if (task) {
-        await updateTask(values);
+        dispatch(updateTaskAsync(values));
       } else {
-        await newTask(values);
+        dispatch(createNewTaskAsync(values));
       }
-      closeDialogTask(false);
     }
   });
 
@@ -90,7 +87,7 @@ const DialogData: FC<DialogDataProps> = ({
       maxWidth="md"
       open={openDialogTask}
       TransitionComponent={Transition}
-      onClose={() => closeDialogTask(false)}
+      onClose={() => dispatch(showDialog())}
       aria-describedby="alert-dialog-slide-description"
     >
       <DialogTitle>

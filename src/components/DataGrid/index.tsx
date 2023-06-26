@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { CheckTwoTone, Delete, Edit } from '@mui/icons-material';
 import { IconButton } from '@mui/material';
@@ -7,6 +8,9 @@ import { GridColDef } from '@mui/x-data-grid';
 import Task from '../../interfaces/tasks';
 
 import returnColorRow from '../../utils/returnColorRow';
+
+import { Dispatch, completeTaskAsync, getTasks, removeTaskAsync, selectTask } from '../../redux/actions/tasks.actions';
+import { AppProps } from '../../redux/reducers/tasks.reducer';
 
 import { format } from 'date-fns';
 
@@ -17,32 +21,27 @@ import CustomToolbar from './CustomToolbar';
 import PaginationFooter from './PaginationFooter';
 import { CustomDataGrid, StyledButtonContainer, TooltipCustom } from './styles';
 
-type DataGridProps = {
-  rows: Task[];
-  loadingPage: boolean;
-  fetching: boolean;
-  taskExport: Record<string, string>[];
-  completeTask: (task: Task) => void;
-  removeTask: (task: Task) => void;
-  selectTask: (task: Task | null) => void;
-};
-
 const itemPerPage = 8;
 
-export class DataGrid extends Component<DataGridProps> {
+interface DataGridProps extends AppProps {
+  dispatch: Dispatch;
+}
 
-  state = {
-    currentPage: 0
-  };
+export class DataGrid extends Component {
+
+  state = { currentPage: 0 };
 
   setCurrentPage = (currentPage: number) => {
     this.setState({ currentPage });
   };
 
+  componentDidMount() {
+    const { dispatch } = this.props as DataGridProps;
+    dispatch(getTasks());
+  }
+
   render() {
-    const { rows, taskExport, loadingPage,
-      completeTask, selectTask, removeTask, fetching
-    } = this.props as DataGridProps;
+    const { csvItems, fetching, dispatch, tasks } = this.props as DataGridProps;
     const { currentPage } = this.state;
 
     const columns: GridColDef[] = [
@@ -59,7 +58,7 @@ export class DataGrid extends Component<DataGridProps> {
         renderCell: ({ row }) => {
           return (
             <StyledButtonContainer>
-              <IconButton onClick={() => selectTask(row)} >
+              <IconButton onClick={() => dispatch(selectTask(row))} >
                 <TooltipCustom
                   title="Editar"
                   placement="right"
@@ -68,7 +67,7 @@ export class DataGrid extends Component<DataGridProps> {
                   <Edit />
                 </TooltipCustom>
               </IconButton>
-              <IconButton onClick={() => completeTask(row)} >
+              <IconButton onClick={() => dispatch(completeTaskAsync(row))} >
                 <TooltipCustom
                   title="Concluir"
                   placement="right"
@@ -77,7 +76,7 @@ export class DataGrid extends Component<DataGridProps> {
                   <CheckTwoTone />
                 </TooltipCustom>
               </IconButton>
-              <IconButton onClick={() => removeTask(row)} >
+              <IconButton onClick={() => dispatch(removeTaskAsync(row))} >
                 <TooltipCustom
                   title="Remover"
                   placement="right"
@@ -160,7 +159,7 @@ export class DataGrid extends Component<DataGridProps> {
 
     return (
       <CustomDataGrid
-        rows={rows}
+        rows={tasks}
         columns={columns}
         pageSize={8}
         page={currentPage}
@@ -171,7 +170,7 @@ export class DataGrid extends Component<DataGridProps> {
         components={{
           Toolbar: () => {
             const toolbar = new CustomToolbar({
-              data: taskExport,
+              data: csvItems,
               exportFileName: 'Lista de tarefas'
             });
             return toolbar ? toolbar.render() : null;
@@ -180,13 +179,13 @@ export class DataGrid extends Component<DataGridProps> {
             return (
               <PaginationFooter
                 currentPage={currentPage}
-                numberOfPages={Math.ceil(rows.length / itemPerPage)}
+                numberOfPages={Math.ceil(tasks.length / itemPerPage)}
                 setCurrentPage={this.setCurrentPage}
               />
             );
           },
           NoResultsOverlay: () => {
-            if (loadingPage) {
+            if (fetching) {
               return <LoadingProgress />;
             }
             return (
@@ -207,4 +206,8 @@ export class DataGrid extends Component<DataGridProps> {
   }
 }
 
-export default DataGrid;
+const mapStateToProps = (state: AppProps) => {
+  return { ...state };
+};
+
+export default connect(mapStateToProps)(DataGrid);

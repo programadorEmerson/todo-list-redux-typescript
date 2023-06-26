@@ -97,6 +97,8 @@
                     "/contexts/",
                     "/interfaces/",
                     "/utils/",
+                    "/redux/",
+                    "/enum/",
                     "module",
                     "/^~//",
                     "parent",

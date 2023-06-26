@@ -7,6 +7,8 @@ Frameworks/Bibliotecas utilizadas
 Aplicação com deploy em https://todo-list-redux-typescript.vercel.app/ </br >
 Histórico de desenvolvimento: https://github.com/programadorEmerson/todo-list-redux-typescript/commits/main
 
+`Obs. Como plus implementado LocalStorage, e aplicação com Vite e não CRA `
+
 `As demais respostas estão na pasta respostas`
 </br>/respostas/desempenho.md
 </br>/respostas/numeroMaisFrequente.js

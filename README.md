@@ -7,6 +7,13 @@ Frameworks/Bibliotecas utilizadas
 Aplicação com deploy em https://todo-list-redux-typescript.vercel.app/ </br >
 Histórico de desenvolvimento: https://github.com/programadorEmerson/todo-list-redux-typescript/commits/main
 
+`As demais respostas estão na pasta respostas`
+</br>/respostas/desempenho.md
+</br>/respostas/numeroMaisFrequente.js
+</br>/respostas/reduxThunk-ReduxSaga.md
+</br>/respostas/renderizacaoCondicional.md
+</br>/respostas/somaBaseadaNoAlvo.js
+
 `Observações importantes de funcionalidades`
 
 Aplicação desenvolvida em Mobile Firt</br>
@@ -60,6 +67,66 @@ Com o react-csv, você pode criar facilmente um componente CSVLink que, quando c
 `React-Xlsx`</br>
 A biblioteca react-xlsx é uma ferramenta útil para trabalhar com arquivos XLSX (Excel) em aplicativos React. Ela permite gerar e manipular planilhas do Excel de forma programática.
 Com o react-xlsx, você pode criar componentes que geram arquivos XLSX a partir de dados estruturados. Esses dados podem ser tabelas, gráficos, relatórios ou qualquer outro formato suportado pelo Excel. A biblioteca oferece uma interface simples para formatar células, adicionar estilos, aplicar fórmulas e criar várias abas na planilha.
+
+`Desafio`
+
+```bash
+Instruções:
+Crie uma aplicação ReactJS para um sistema de gerenciamento de tarefas. Você
+deve implementar os seguintes requisitos:
+1. Exibir uma lista de tarefas na tela, mostrando o título e a descrição de cada
+tarefa.
+2. Adicionar a funcionalidade de marcar uma tarefa como concluída. Ao clicar
+em uma tarefa, ela deve ser marcada como concluída e exibir um estilo visual
+diferente.
+3. Implementar a funcionalidade de filtrar as tarefas por status (concluídas ou
+pendentes).
+4. Adicionar a funcionalidade de ordenar as tarefas por data de criação (mais
+recentes primeiro ou mais antigas primeiro).
+5. Implementar a funcionalidade de edição de tarefas. Ao clicar em um botão
+"Editar" ao lado de uma tarefa, um modal deve ser exibido com os campos de
+título e descrição preenchidos com os dados da tarefa selecionada. O usuário
+pode editar os campos e salvar as alterações.
+
+Requisitos adicionais:
+● Use componentes de classe do React.
+● Utilize o Redux para o gerenciamento de estado da aplicação.
+● Utilize Redux Thunk ou Redux Saga para lidar com ações assíncronas, como a
+edição de tarefas.
+● Implemente validações de formulário para os campos de título e descrição.
+● Adicione estilos personalizados usando CSS ou uma biblioteca de sua
+escolha.
+● Utilize algum pacote de UI para os componentes visuais, como o Material-UI
+ou Ant Design.
+
+Observações:
+● Não se preocupe com a persistência de dados. As tarefas podem ser
+armazenadas no estado da aplicação.
+● Você pode definir a estrutura do estado da aplicação conforme achar
+adequado.
+● Ao finalizar, adicione instruções de como executar a aplicação
+localmente e qualquer informação relevante.
+
+Parte 2: Resolução de problemas
+Instruções:
+Resolva os seguintes problemas de programação. Implemente uma solução em
+JavaScript e forneça uma explicação para cada problema.
+Escreva uma função que encontre o número mais frequente em um array de
+números inteiros.
+Exemplo de entrada: [1, 3, 5, 3, 1, 1, 5, 1, 4]
+1. Saída esperada: 1
+Dada uma matriz de números inteiros e um alvo, escreva uma função que retorne os
+índices de dois números cuja soma seja igual ao alvo. Assuma que cada entrada
+tenha exatamente uma solução única.
+Exemplo de entrada: array = [2, 7, 11, 15], target = 9
+2. Saída esperada: [0, 1]
+3. Explique o conceito de "renderização condicional" no React e forneça um
+exemplo de uso.
+4. Quais são as diferenças entre o uso de "redux-thunk" e "redux-saga" para lidar
+com ações assíncronas no Redux?
+5. Suponha que você esteja enfrentando um problema de desempenho em uma
+aplicação React.
+```
 
 <h1><br>
 <p align="center">

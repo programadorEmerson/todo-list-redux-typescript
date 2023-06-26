@@ -9,20 +9,20 @@ Histórico de desenvolvimento: https://github.com/programadorEmerson/todo-list-r
 
 `Observações importantes de funcionalidades`
 
-Aplicação desenvolvida em Mobile Firt
+Aplicação desenvolvida em Mobile Firt</br>
 ![Mobile Firt](/src/assets/prints/5.png)
 ![Mobile Firt](/src/assets/prints/6.png)
 
-Filtar colunas
+Filtar colunas</br>
 ![Filtar colunas](/src/assets/prints/1.png)
 
-Filtar valores
+Filtar valores</br>
 ![Filtar valores](/src/assets/prints/2.png)
 
-Gerar Csv ou Xls
+Gerar Csv ou Xls</br>
 ![Gerar Csv ou Xls](/src/assets/prints/3.png)
 
-Ordenar qualquer coluna clicando no nome dela
+Ordenar qualquer coluna clicando no nome dela</br>
 ![Ordenar qualquer coluna clicando no nome dela](/src/assets/prints/4.png)
 
 `ReactJs`</br>
